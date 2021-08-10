@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pdm/components/perfil_page_components/perfil_button.dart';
+import 'package:pdm/controllers/PerfilPageController.dart';
+import 'package:pdm/data/models/user.dart';
 
 class PerfilPage extends StatefulWidget {
   const PerfilPage({Key? key}) : super(key: key);
@@ -10,19 +12,15 @@ class PerfilPage extends StatefulWidget {
 
 class _PerfilPageState extends State<PerfilPage>
     with SingleTickerProviderStateMixin {
-  TabController? tabController;
 
-  ScrollController _scrollController = new ScrollController();
-
-  final String url = "";
-
-  final posts = [];
+  PerfilPageController _controller = new PerfilPageController();
+  User? user = new User(name: "Vinicius Alves", description: 'Hello World!', images: []);
 
   void initState() {
-    tabController = TabController(length: 4, vsync: this);
+    _controller.initTabController(length: 4, vsync: this);
 
-    for (var i = 0; i < 7; i++) {
-      posts.add(url);
+    for (var i = 0; i < 22; i++) {
+      user!.addImages(_controller.url);
     }
 
     super.initState();
@@ -30,7 +28,7 @@ class _PerfilPageState extends State<PerfilPage>
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    _controller.size = MediaQuery.of(context).size;
 
     return Scaffold(
       appBar: AppBar(
@@ -86,6 +84,7 @@ class _PerfilPageState extends State<PerfilPage>
       ),
       body: SingleChildScrollView(
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Container(
               //Cabeçalho
@@ -100,11 +99,6 @@ class _PerfilPageState extends State<PerfilPage>
                         children: [
                           Stack(
                             children: [
-                              Container(
-                                width: 80,
-                                height: 80,
-                                //color: Colors.black,
-                              ),
                               ClipOval(
                                 child: Image.asset(
                                   'assets/images/foto.jpg',
@@ -112,7 +106,36 @@ class _PerfilPageState extends State<PerfilPage>
                                   height: 80,
                                   fit: BoxFit.fill,
                                 ),
-                              )
+                              ),
+                              Container(
+                                width: 80,
+                                height: 80,
+                                child: Align(
+                                  alignment: Alignment.bottomRight,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(3),
+                                    child: Container(
+                                      child: ClipOval(
+                                        child: InkWell(
+                                          onTap: () {},
+                                          child: Container(
+                                            color: Colors.blue,
+                                            height: 20,
+                                            width: 20,
+                                            child: Center(
+                                                child: Icon(
+                                              Icons.add,
+                                              size: 14,
+                                              color: Colors.white,
+                                            )),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                //color: Colors.black,
+                              ),
                             ],
                           ),
                           Column(
@@ -197,7 +220,7 @@ class _PerfilPageState extends State<PerfilPage>
                           PerfilButton(
                             onPressed: () {},
                             text: 'Editar Perfil',
-                            size: size,
+                            size: _controller.size,
                             padding: EdgeInsets.only(left: 0, right: 0),
                           )
                         ],
@@ -213,7 +236,7 @@ class _PerfilPageState extends State<PerfilPage>
                 color: Color.fromRGBO(250, 250, 250, 1),
                 child: TabBar(
                   indicatorColor: Colors.black,
-                  controller: tabController,
+                  controller: _controller.tabController,
                   tabs: [
                     Tab(
                       icon: Icon(
@@ -240,24 +263,24 @@ class _PerfilPageState extends State<PerfilPage>
               ),
             ),
             Container(
-              height: size.height * 0.6,
+              height: (user!.images!.length / 3) * ((_controller.size.width) / 3) + 50,
               child: TabBarView(
-                controller: tabController,
+                controller: _controller.tabController,
                 children: <Widget>[
                   //Page 1
                   Container(
-                    //height: 1000,
-                    //color: Colors.blue,
                     child: GridView.builder(
                         physics: NeverScrollableScrollPhysics(),
-                        itemCount: posts.length,
+                        itemCount: user!.images!.length,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          mainAxisExtent: (_controller.size.width - 4) / 3,
                           crossAxisCount: 3,
                         ),
                         itemBuilder: (context, item) {
                           return Container(
                             decoration: BoxDecoration(
-                              border: Border.all(color: Colors.white),
+                              border:
+                                  Border.all(color: Colors.white, width: 1.0),
                               //color: Colors.red,
                             ),
                             child: Image.asset(
