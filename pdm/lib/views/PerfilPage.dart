@@ -12,9 +12,9 @@ class PerfilPage extends StatefulWidget {
 
 class _PerfilPageState extends State<PerfilPage>
     with SingleTickerProviderStateMixin {
-
   PerfilPageController _controller = new PerfilPageController();
-  User? user = new User(name: "Vinicius Alves", description: 'Hello World!', images: []);
+  User? user =
+      new User(name: "Vinicius Alves", description: 'Hello World!', images: []);
 
   void initState() {
     _controller.initTabController(length: 4, vsync: this);
@@ -193,15 +193,15 @@ class _PerfilPageState extends State<PerfilPage>
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               Text(
-                                " Pessoa 1,",
+                                " Pessoa 2,",
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               Text(
-                                " Pessoa 1,",
+                                " Pessoa 3,",
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               Text(
-                                " Pessoa 1,",
+                                " Pessoa 4,",
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                             ],
@@ -263,7 +263,9 @@ class _PerfilPageState extends State<PerfilPage>
               ),
             ),
             Container(
-              height: (user!.images!.length / 3) * ((_controller.size.width) / 3) + 50,
+              height:
+                  (user!.images!.length / 3) * ((_controller.size.width) / 3) +
+                      50,
               child: TabBarView(
                 controller: _controller.tabController,
                 children: <Widget>[

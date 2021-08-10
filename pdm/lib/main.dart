@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pdm/views/PerfilPage.dart';
+import 'package:pdm/views/Home.dart';
+import 'package:pdm/views/Imc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: PerfilPage(),
+      home: Imc(),
       theme: ThemeData(
           //primarySwatch: Colors.white,
           primaryColor: Colors.white), // ThemeData

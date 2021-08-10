@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pdm/views/Calculadora.dart';
+import 'package:pdm/views/Imc.dart';
 import 'package:pdm/views/PerfilPage.dart';
 
 class Home extends StatefulWidget {
@@ -16,7 +17,6 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text('Home'),
       ),
-      
       body: Container(
         width: double.infinity,
         child: Column(
@@ -33,7 +33,13 @@ class _HomeState extends State<Home> {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => PerfilPage()));
                 },
-                child: Text('PerfilPage'))
+                child: Text('PerfilPage')),
+            TextButton(
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Imc()));
+                },
+                child: Text('Imc'))
           ],
         ),
       ),

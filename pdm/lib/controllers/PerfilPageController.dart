@@ -5,6 +5,7 @@ class PerfilPageController {
   TabController? tabController;
 
   Size? _size;
+  //Colo
 
   final String url = "";
 
@@ -13,8 +14,8 @@ class PerfilPageController {
   }
 
   set size(value) {
-    this.size = value;
+    _size = value;
   }
 
-  Size get size => this.size;
+  Size get size => _size!;
 }
