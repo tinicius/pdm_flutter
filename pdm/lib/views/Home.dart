@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pdm/views/Calculadora.dart';
+import 'package:pdm/views/DirectPage.dart';
 import 'package:pdm/views/Imc.dart';
 import 'package:pdm/views/PerfilPage.dart';
 
@@ -39,7 +40,13 @@ class _HomeState extends State<Home> {
                   Navigator.push(
                       context, MaterialPageRoute(builder: (context) => Imc()));
                 },
-                child: Text('Imc'))
+                child: Text('Imc')),
+            TextButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => DirectPage()));
+                },
+                child: Text('Direct'))
           ],
         ),
       ),

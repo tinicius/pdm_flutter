@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pdm/data/models/user.dart';
 
 class PerfilPageController {
   TabController? tabController;

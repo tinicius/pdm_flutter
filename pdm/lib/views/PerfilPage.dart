@@ -14,7 +14,7 @@ class _PerfilPageState extends State<PerfilPage>
     with SingleTickerProviderStateMixin {
   PerfilPageController _controller = new PerfilPageController();
   User? user =
-      new User(name: "Vinicius Alves", description: 'Hello World!', images: []);
+      new User(name: "Vinicius Alves", description: 'Hello World!', images: [], image: '');
 
   void initState() {
     _controller.initTabController(length: 4, vsync: this);
@@ -95,7 +95,7 @@ class _PerfilPageState extends State<PerfilPage>
                     child: Padding(
                       padding: const EdgeInsets.all(10),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Stack(
                             children: [
