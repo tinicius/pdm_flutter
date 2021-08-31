@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pdm/views/Calculadora.dart';
+import 'package:pdm/views/CameraPage.dart';
 import 'package:pdm/views/DirectPage.dart';
 import 'package:pdm/views/Imc.dart';
 import 'package:pdm/views/PerfilPage.dart';
@@ -46,7 +47,13 @@ class _HomeState extends State<Home> {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => DirectPage()));
                 },
-                child: Text('Direct'))
+                child: Text('Direct')),
+            TextButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => CameraPage()));
+                },
+                child: Text('Câmera'))
           ],
         ),
       ),

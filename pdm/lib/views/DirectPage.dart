@@ -16,11 +16,11 @@ class _DirectPageState extends State<DirectPage> {
   List<Message> msgs = [
     Message(
         user: User(
-            name: "Sofia Lara",
+            name: "saoafsisa",
             description: '',
             images: [],
-            image: 'assets/images/pessoas/mulher3.jpg'),
-        lastText: 'Olá',
+            image: 'assets/images/pessoas/mulher4.jpg'),
+        lastText: 'Olaaaaaaaaaaaaaaaaaaaaá',
         time: DateTime.now(),
         muted: false,
         online: false,
@@ -32,7 +32,8 @@ class _DirectPageState extends State<DirectPage> {
             description: '',
             images: [],
             image: 'assets/images/pessoas/mulher2.jpg'),
-        lastText: 'Legal!',
+        lastText:
+            'Legaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaal!',
         time: DateTime.now(),
         muted: false,
         online: true,
@@ -76,10 +77,10 @@ class _DirectPageState extends State<DirectPage> {
         status: false),
     Message(
         user: User(
-            name: "Renato",
+            name: "rentasdasd",
             description: '',
             images: [],
-            image: 'assets/images/pessoas/homem2.jpg'),
+            image: 'assets/images/pessoas/homem1.jpg'),
         lastText: 'a',
         time: DateTime.now(),
         muted: true,
@@ -88,10 +89,10 @@ class _DirectPageState extends State<DirectPage> {
         status: true),
     Message(
         user: User(
-            name: "Sofia Lara",
+            name: "asdasd",
             description: '',
             images: [],
-            image: 'assets/images/pessoas/mulher1.jpg'),
+            image: 'assets/images/pessoas/mulher2.jpg'),
         lastText: 'Olá, bom dia!',
         time: DateTime.now(),
         muted: false,
@@ -151,7 +152,7 @@ class _DirectPageState extends State<DirectPage> {
             name: "paulaguzman",
             description: '',
             images: [],
-            image: 'assets/images/pessoas/homem2.jpg'),
+            image: 'assets/images/pessoas/homem1.jpg'),
         lastText: 'Olá',
         time: DateTime.now(),
         muted: true,
@@ -160,10 +161,10 @@ class _DirectPageState extends State<DirectPage> {
         status: true),
     Message(
         user: User(
-            name: "Sofia Lara",
+            name: "adasdasd",
             description: '',
             images: [],
-            image: 'assets/images/pessoas/mulher1.jpg'),
+            image: 'assets/images/pessoas/mulher3.jpg'),
         lastText: 'Olá, bom dia!',
         time: DateTime.now(),
         muted: false,
@@ -223,7 +224,7 @@ class _DirectPageState extends State<DirectPage> {
             name: "paulaguzman",
             description: '',
             images: [],
-            image: 'assets/images/pessoas/homem2.jpg'),
+            image: 'assets/images/pessoas/homem1.jpg'),
         lastText: 'Olá',
         time: DateTime.now(),
         muted: true,

@@ -40,11 +40,15 @@ class MessageTile extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Text(message!.lastText!,
-                            style: TextStyle(
-                                fontWeight: message!.read!
-                                    ? FontWeight.normal
-                                    : FontWeight.bold)),
+                        Container(
+                          constraints: BoxConstraints(maxWidth: 120),
+                          child: Text(message!.lastText!,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                  fontWeight: message!.read!
+                                      ? FontWeight.normal
+                                      : FontWeight.bold)),
+                        ),
                         Text(
                             " • " +
                                 timeago.format(message!.time!, locale: 'pt_BR'),
