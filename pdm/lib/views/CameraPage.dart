@@ -82,9 +82,6 @@ class _CameraPageState extends State<CameraPage> {
         child: Stack(
           children: [
             CameraApp(cameras: cameraAppController.cameras),
-            //Container(
-            //color: Colors.blue,
-            //),
             BottomMenu(
               updateState: updateState,
             )
