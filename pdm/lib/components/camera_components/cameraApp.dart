@@ -12,8 +12,6 @@ class CameraApp extends StatefulWidget {
 }
 
 class _CameraAppState extends State<CameraApp> {
-  
-
   final List<CameraDescription> cameras;
 
   _CameraAppState(this.cameras);
@@ -21,23 +19,21 @@ class _CameraAppState extends State<CameraApp> {
   @override
   void initState() {
     super.initState();
-    
-    controller.initialize().then((_) {
-      if (!mounted) {
-        return;
-      }
+
+    updateState() {
       setState(() {});
-    });
+    }
+
+    cameraAppController.initialize(mounted, updateState);
   }
 
-  
   @override
   Widget build(BuildContext context) {
-    if (!controller.value.isInitialized) {
+    if (!cameraAppController.controller.value.isInitialized) {
       return Container();
     }
     return MaterialApp(
-      home: CameraPreview(controller),
+      home: CameraPreview(cameraAppController.controller),
     );
   }
 }

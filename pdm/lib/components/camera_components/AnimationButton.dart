@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:pdm/main.dart';
 
 class AnimationButton extends StatefulWidget {
-  const AnimationButton({Key? key}) : super(key: key);
+  const AnimationButton({Key? key, required this.updateState})
+      : super(key: key);
+  final Function updateState;
 
   @override
-  _AnimationButtonState createState() => _AnimationButtonState();
+  _AnimationButtonState createState() =>
+      _AnimationButtonState(updateState: updateState);
 }
 
 class _AnimationButtonState extends State<AnimationButton>
@@ -14,6 +18,10 @@ class _AnimationButtonState extends State<AnimationButton>
   double animationHeight = 0;
   double animationWidth = 0;
   Color animationColor = Colors.transparent;
+
+  final Function updateState;
+
+  _AnimationButtonState({required this.updateState});
 
   @override
   void initState() {
@@ -43,16 +51,6 @@ class _AnimationButtonState extends State<AnimationButton>
             valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
           ),
         ),
-        /*
-        Container(
-          height: 90,
-          width: 90,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.transparent,
-          ),
-        ),
-        */
         GestureDetector(
           onTapDown: (_) {
             controller.forward();
@@ -60,13 +58,15 @@ class _AnimationButtonState extends State<AnimationButton>
               animationColor = Colors.white;
             });
           },
-          onTapUp: (_) {
+          onTapUp: (_) async {
+            //foto
+            cameraAppController.onTakePicture(mounted, updateState);
+
             if (controller.status == AnimationStatus.forward) {
               setState(() {
                 animationColor = Colors.transparent;
                 controller.value = 0;
               });
-              //controller.reverse();
             }
           },
           child: Container(

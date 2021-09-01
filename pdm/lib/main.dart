@@ -1,20 +1,16 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:pdm/controllers/CameraAppController.dart';
 
 import 'package:pdm/views/Home.dart';
 
-List<CameraDescription> cameras = [];
-late CameraController controller;
-
-initController() {
-  controller = CameraController(cameras[0], ResolutionPreset.max);
-}
+CameraAppController cameraAppController = new CameraAppController();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  cameras = await availableCameras();
-  initController();
+  cameraAppController.cameras = await availableCameras();
+  cameraAppController.initController();
 
   runApp(const MyApp());
 }

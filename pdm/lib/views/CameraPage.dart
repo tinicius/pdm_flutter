@@ -12,6 +12,10 @@ class CameraPage extends StatefulWidget {
 }
 
 class _CameraPageState extends State<CameraPage> {
+  void updateState() {
+    setState(() {});
+  }
+
   IconData getFlashIcon(FlashMode mode) {
     if (mode == FlashMode.off) {
       return Icons.flash_off;
@@ -24,7 +28,7 @@ class _CameraPageState extends State<CameraPage> {
 
   void onSetFlashMode(FlashMode mode) {
     setState(() {
-      controller.setFlashMode(mode);
+      cameraAppController.controller.setFlashMode(mode);
     });
   }
 
@@ -45,18 +49,22 @@ class _CameraPageState extends State<CameraPage> {
               children: [
                 IconButton(
                     onPressed: () {
-                      if (controller.value.flashMode == FlashMode.off) {
+                      if (cameraAppController.controller.value.flashMode ==
+                          FlashMode.off) {
                         return onSetFlashMode(FlashMode.always);
-                      } else if (controller.value.flashMode ==
+                      } else if (cameraAppController
+                              .controller.value.flashMode ==
                           FlashMode.always) {
                         return onSetFlashMode(FlashMode.auto);
                       }
-                      if (controller.value.flashMode == FlashMode.auto) {
+                      if (cameraAppController.controller.value.flashMode ==
+                          FlashMode.auto) {
                         return onSetFlashMode(FlashMode.off);
                       }
                     },
                     icon: Icon(
-                      getFlashIcon(controller.value.flashMode),
+                      getFlashIcon(
+                          cameraAppController.controller.value.flashMode),
                       color: Colors.white,
                       size: 40,
                     )),
@@ -73,11 +81,13 @@ class _CameraPageState extends State<CameraPage> {
       body: Container(
         child: Stack(
           children: [
-            CameraApp(cameras: cameras),
+            CameraApp(cameras: cameraAppController.cameras),
             //Container(
             //color: Colors.blue,
             //),
-            BottomMenu()
+            BottomMenu(
+              updateState: updateState,
+            )
           ],
         ),
       ),
